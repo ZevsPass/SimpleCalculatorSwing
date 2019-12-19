@@ -28,28 +28,56 @@ public class Calculator extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        firstNumberTxtField = new javax.swing.JTextField();
+        addButton = new javax.swing.JButton();
+        substrButton = new javax.swing.JButton();
+        multButton = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        secondNumberTxtField = new javax.swing.JTextField();
+        resultLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton1.setText("+");
-        jButton1.setToolTipText("");
+        firstNumberTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNumberTxtFieldActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("-");
-        jButton2.setToolTipText("");
+        addButton.setText("+");
+        addButton.setToolTipText("");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("*");
+        substrButton.setText("-");
+        substrButton.setToolTipText("");
+        substrButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                substrButtonActionPerformed(evt);
+            }
+        });
+
+        multButton.setText("*");
+        multButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                multButtonActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("/");
         jButton4.setToolTipText("");
 
-        jTextField3.setToolTipText("");
+        secondNumberTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                secondNumberTxtFieldActionPerformed(evt);
+            }
+        });
+
+        resultLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        resultLabel.setText("Result");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,48 +85,103 @@ public class Calculator extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(secondNumberTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                    .addComponent(firstNumberTxtField)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(substrButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(multButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(resultLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(239, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(firstNumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(secondNumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(substrButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(multButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(resultLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
-        jButton1.getAccessibleContext().setAccessibleName("Add");
-        jButton2.getAccessibleContext().setAccessibleName("Substr");
-        jButton3.getAccessibleContext().setAccessibleName("Mult");
+        addButton.getAccessibleContext().setAccessibleName("Add");
+        substrButton.getAccessibleContext().setAccessibleName("Substr");
+        multButton.getAccessibleContext().setAccessibleName("Mult");
         jButton4.getAccessibleContext().setAccessibleName("Delenie");
-        jTextField2.getAccessibleContext().setAccessibleName("FirstNumber");
-        jTextField3.getAccessibleContext().setAccessibleName("SecondNumber");
+        secondNumberTxtField.getAccessibleContext().setAccessibleName("FirstNumber");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void firstNumberTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNumberTxtFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNumberTxtFieldActionPerformed
+    
+    
+    
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        
+        try{
+            String firstNumber = this.firstNumberTxtField.getText();
+        String secondNumber = this.secondNumberTxtField.getText(); 
+        int firstNumbInt = Integer.parseInt(firstNumber);
+        int secondNumbInt = Integer.parseInt(secondNumber);
+        int sum = firstNumbInt + secondNumbInt;
+        this.resultLabel.setText(String.valueOf(sum));
+        } catch (NumberFormatException ex){
+            this.resultLabel.setText("Wrong input, please try again");
+            
+        }
+       
+        
+        
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void secondNumberTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secondNumberTxtFieldActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_secondNumberTxtFieldActionPerformed
+
+    private void substrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_substrButtonActionPerformed
+        // TODO add your handling code here:
+        String firstNumber = this.firstNumberTxtField.getText();
+        String secondNumber = this.secondNumberTxtField.getText(); 
+        
+        //get second number
+        //podschitat summy
+        int firstNumbInt = Integer.parseInt(firstNumber);
+        int secondNumbInt = Integer.parseInt(secondNumber);
+        int subst = firstNumbInt - secondNumbInt;
+        this.resultLabel.setText(String.valueOf(subst));
+    }//GEN-LAST:event_substrButtonActionPerformed
+
+    private void multButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multButtonActionPerformed
+        // TODO add your handling code here:
+         String firstNumber = this.firstNumberTxtField.getText();
+        String secondNumber = this.secondNumberTxtField.getText(); 
+        
+        //get second number
+        //podschitat summy
+        int firstNumbInt = Integer.parseInt(firstNumber);
+        int secondNumbInt = Integer.parseInt(secondNumber);
+        int mult = firstNumbInt * secondNumbInt;
+        this.resultLabel.setText(String.valueOf(mult));
+    }//GEN-LAST:event_multButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,12 +226,12 @@ public class Calculator extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton addButton;
+    private javax.swing.JTextField firstNumberTxtField;
     private javax.swing.JButton jButton4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton multButton;
+    private javax.swing.JLabel resultLabel;
+    private javax.swing.JTextField secondNumberTxtField;
+    private javax.swing.JButton substrButton;
     // End of variables declaration//GEN-END:variables
 }
