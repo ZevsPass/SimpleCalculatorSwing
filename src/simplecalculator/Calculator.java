@@ -32,7 +32,7 @@ public class Calculator extends javax.swing.JDialog {
         addButton = new javax.swing.JButton();
         substrButton = new javax.swing.JButton();
         multButton = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        delenieButton = new javax.swing.JButton();
         secondNumberTxtField = new javax.swing.JTextField();
         resultLabel = new javax.swing.JLabel();
 
@@ -67,8 +67,13 @@ public class Calculator extends javax.swing.JDialog {
             }
         });
 
-        jButton4.setText("/");
-        jButton4.setToolTipText("");
+        delenieButton.setText("/");
+        delenieButton.setToolTipText("");
+        delenieButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delenieButtonActionPerformed(evt);
+            }
+        });
 
         secondNumberTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +103,7 @@ public class Calculator extends javax.swing.JDialog {
                                 .addComponent(multButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(resultLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(delenieButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(239, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -113,7 +118,7 @@ public class Calculator extends javax.swing.JDialog {
                     .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(substrButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(multButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(delenieButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(resultLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(103, Short.MAX_VALUE))
@@ -122,7 +127,7 @@ public class Calculator extends javax.swing.JDialog {
         addButton.getAccessibleContext().setAccessibleName("Add");
         substrButton.getAccessibleContext().setAccessibleName("Substr");
         multButton.getAccessibleContext().setAccessibleName("Mult");
-        jButton4.getAccessibleContext().setAccessibleName("Delenie");
+        delenieButton.getAccessibleContext().setAccessibleName("Delenie");
         secondNumberTxtField.getAccessibleContext().setAccessibleName("FirstNumber");
 
         pack();
@@ -138,11 +143,17 @@ public class Calculator extends javax.swing.JDialog {
         
         try{
             String firstNumber = this.firstNumberTxtField.getText();
-        String secondNumber = this.secondNumberTxtField.getText(); 
-        int firstNumbInt = Integer.parseInt(firstNumber);
-        int secondNumbInt = Integer.parseInt(secondNumber);
-        int sum = firstNumbInt + secondNumbInt;
-        this.resultLabel.setText(String.valueOf(sum));
+            String secondNumber = this.secondNumberTxtField.getText();
+            double firstNumbInt = Double.parseDouble(firstNumber);
+            double secondNumbInt = Double.parseDouble(secondNumber);
+            double sum = firstNumbInt + secondNumbInt;
+            
+            if(sum%2>0){
+                this.resultLabel.setText(String.valueOf(sum));
+            }
+            else
+                sum = (int)sum;
+                this.resultLabel.setText(String.valueOf(sum));
         } catch (NumberFormatException ex){
             this.resultLabel.setText("Wrong input, please try again");
             
@@ -158,30 +169,49 @@ public class Calculator extends javax.swing.JDialog {
     }//GEN-LAST:event_secondNumberTxtFieldActionPerformed
 
     private void substrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_substrButtonActionPerformed
-        // TODO add your handling code here:
-        String firstNumber = this.firstNumberTxtField.getText();
-        String secondNumber = this.secondNumberTxtField.getText(); 
         
-        //get second number
-        //podschitat summy
-        int firstNumbInt = Integer.parseInt(firstNumber);
-        int secondNumbInt = Integer.parseInt(secondNumber);
-        int subst = firstNumbInt - secondNumbInt;
-        this.resultLabel.setText(String.valueOf(subst));
+       try{
+            String firstNumber = this.firstNumberTxtField.getText();
+            String secondNumber = this.secondNumberTxtField.getText(); 
+            double firstNumbInt = Double.parseDouble(firstNumber);
+            double secondNumbInt = Double.parseDouble(secondNumber);
+            double subst = firstNumbInt - secondNumbInt;
+        this.resultLabel.setText(String.valueOf(subst)); 
+       } catch(NumberFormatException ex){
+            this.resultLabel.setText("Wrong input, please try again");           
+       }
+        
     }//GEN-LAST:event_substrButtonActionPerformed
 
     private void multButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multButtonActionPerformed
-        // TODO add your handling code here:
-         String firstNumber = this.firstNumberTxtField.getText();
-        String secondNumber = this.secondNumberTxtField.getText(); 
-        
-        //get second number
-        //podschitat summy
-        int firstNumbInt = Integer.parseInt(firstNumber);
-        int secondNumbInt = Integer.parseInt(secondNumber);
-        int mult = firstNumbInt * secondNumbInt;
-        this.resultLabel.setText(String.valueOf(mult));
+       try{
+            String firstNumber = this.firstNumberTxtField.getText();
+            String secondNumber = this.secondNumberTxtField.getText(); 
+            double firstNumbInt = Double.parseDouble(firstNumber);
+            double secondNumbInt = Double.parseDouble(secondNumber);
+            double mult = firstNumbInt * secondNumbInt;
+            this.resultLabel.setText(String.valueOf(mult)); 
+       } catch(NumberFormatException ex){
+           this.resultLabel.setText("Wrong input, please try again");
+       }  
     }//GEN-LAST:event_multButtonActionPerformed
+
+    private void delenieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delenieButtonActionPerformed
+      
+            String firstNumber = this.firstNumberTxtField.getText();
+            String secondNumber = this.secondNumberTxtField.getText(); 
+            double firstNumbInt = Double.parseDouble(firstNumber);
+            double secondNumbInt = Double.parseDouble(secondNumber);
+        try{
+            double delenie = firstNumbInt / secondNumbInt;
+            this.resultLabel.setText(String.valueOf(delenie)); 
+       } catch(NumberFormatException ex){
+           this.resultLabel.setText("Wrong input, please try again");
+       }  catch(ArithmeticException ex){
+           this.resultLabel.setText("Delenie na nol, please try again" + ex);
+           secondNumbInt = 0;
+       }
+    }//GEN-LAST:event_delenieButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,8 +257,8 @@ public class Calculator extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JButton delenieButton;
     private javax.swing.JTextField firstNumberTxtField;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton multButton;
     private javax.swing.JLabel resultLabel;
     private javax.swing.JTextField secondNumberTxtField;

@@ -40,7 +40,7 @@
                           <Component id="resultLabel" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton4" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="delenieButton" min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="239" max="32767" attributes="0"/>
@@ -59,7 +59,7 @@
                   <Component id="addButton" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="substrButton" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="multButton" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="jButton4" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="delenieButton" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="resultLabel" min="-2" pref="29" max="-2" attributes="0"/>
@@ -109,7 +109,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="multButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="delenieButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="/"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -117,6 +117,9 @@
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Delenie"/>
       </AccessibilityProperties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="delenieButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="secondNumberTxtField">
       <AccessibilityProperties>
